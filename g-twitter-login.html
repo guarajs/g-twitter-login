@@ -1,0 +1,15 @@
+<polymer-element name="g-twitter-login" >
+    <template>
+    		<link rel="stylesheet" href="zeeg-signin.css">
+    		<button class="btn btn-success" on-click="{{ doSignIn }}">Sign in with Twitter</button>
+    	</template>
+    <script>
+        (function(){
+            Polymer('g-twitter-login', {
+                doSignIn: function(e, detail, sender) {
+                    console.log('Sign In');
+                },
+            });
+        }());
+    </script>
+</polymer-element>
