@@ -1,4 +1,4 @@
-<polymer-element name="g-twitter-login" attributes="label">
+<polymer-element name="g-twitter-login" attributes="label url">
     <template>
     	<link rel="stylesheet" href="g-twitter-login.css">
     	<button class="btn btn-success" on-click="{{ doSignIn }}">{{ label }}</button>
@@ -30,7 +30,7 @@
 
                 doSignIn: function(e, detail, sender) {
                     _signin({
-                        url: 'http://www.zeeg.com.br/api/oauth?action=signin_start'
+                        url: this.url,
                     });
                 },
             });
