@@ -1,11 +1,14 @@
-<polymer-element name="g-twitter-login" >
+<polymer-element name="g-twitter-login" attributes="label">
     <template>
-    		<link rel="stylesheet" href="g-twitter-login.css">
-    		<button class="btn btn-success" on-click="{{ doSignIn }}">Sign in with Twitter</button>
-    	</template>
+    	<link rel="stylesheet" href="g-twitter-login.css">
+    	<button class="btn btn-success" on-click="{{ doSignIn }}">{{ label }}</button>
+    </template>
     <script>
         (function(){
             Polymer('g-twitter-login', {
+
+                label: 'Sign in with Twitter',
+
                 doSignIn: function(e, detail, sender) {
                     console.log('Sign In');
                 },
