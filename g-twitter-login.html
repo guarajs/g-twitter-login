@@ -5,12 +5,33 @@
     </template>
     <script>
         (function(){
+
+            var _signin = function(options) {
+
+        		function listener() {
+        			var json = JSON.parse(this.responseText);
+        			var twitterOAuthAuthenticate = 'https://api.twitter.com/oauth/authenticate?oauth_token=';
+        			window.location = twitterOAuthAuthenticate + json.token;
+        		}
+
+        		var xhr = new XMLHttpRequest();
+        		xhr.onload = listener;
+        		xhr.onerror = function() {
+        			alert('XHR Error!');
+        		}
+        		xhr.open('GET', options.url, true);
+        		xhr.send();
+        	};
+
+
             Polymer('g-twitter-login', {
 
                 label: 'Sign in with Twitter',
 
                 doSignIn: function(e, detail, sender) {
-                    console.log('Sign In');
+                    _signin({
+                        url: 'http://www.zeeg.com.br/api/oauth?action=signin_start'
+                    });
                 },
             });
         }());
